@@ -22,14 +22,14 @@ public class CarController {
     @Autowired
     private CarRepository repository;
 
-    // @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<CarResponseDTO> getAll(){
         List<CarResponseDTO> carList = repository.findAll().stream().map(CarResponseDTO::new).toList(); 
         return carList;
     }
 
-    // @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveCar(@RequestBody CarRequestDTO car){
         Car carData = new Car(car);
